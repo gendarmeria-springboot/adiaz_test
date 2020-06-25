@@ -1,0 +1,17 @@
+server:
+  port: 4300
+  
+spring:
+  application:
+    name: penado
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:oracle:thin:@gend-clust-scan.gendarmeria.gob.cl:1521/test.gendarmeria.gob.cl
+    username: genchi
+    password: prueba
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
