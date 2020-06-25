@@ -1,8 +1,0 @@
-com\test\penado\PenadoApplication.class
-com\test\penado\dto\PenadoDTO.class
-com\test\penado\factory\Factory.class
-com\test\penado\service\PenadoService.class
-com\test\penado\service\impl\PenadoServiceImpl.class
-com\test\penado\controller\PenadoController.class
-com\test\penado\repository\PenadoRepository.class
-com\test\penado\model\PenadoEntity.class
