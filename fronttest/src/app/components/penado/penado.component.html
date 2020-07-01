@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-2">
+            <label for="run">R.U.N:</label>
+            <input class="form-control" type="text" run ="run"  [(ngModel)]="currenpenado.run"/>
+              
+            <p></p>
+          
+            <div>
+                <label for="nom" >Nombres:</label>
+                <input class="form-control" type="text" nom="nombres" [(ngModel)]="currenpenado.nombres"/>
+            </div>
+            <p></p>
+
+          </div>
+        </div>
+      
+    </div>  
+      
+
+      <!-- <div>
+        <button class="botoncrear"  type="button"  (click)="crear()" *ngIf="showPenadoButton">Crear</button>
+        <p></p>
+        <button class="botonbuscar" type="button"  (click)="buscar()" *ngIf="showPenadoButton">Buscar</button>
+        <p></p>
+        <button class="botonactualizar" type="button"  (click)="actualizar()" *ngIf="showPenadoButton">Actualizar</button>
+        <p></p>
+        <button type="button"  class="btn btn-primary" data-toggle="button" aria-pressed="false" (click)="toggle()" >Toggle</button>
+        <p></p>
+        <button type="button"  (click)="showItems()" >ShowItems</button>
+        <p></p>
+
+        </div> -->
+        <div class="row">  
+          <div class="col-12 botonera" >
+              
+              <button  type="submit" class="btn btn-primary" style= "margin: 5px;" (click)="crear()" *ngIf="showPenadoButton">Crear</button>
+           
+              <button  type="submit" class="btn btn-primary" style= "margin: 5px;" (click)="actualizar()" *ngIf="showPenadoButton">Actualizar</button>
+           
+              <button  type="submit" class="btn btn-primary" style= "margin: 5px;" (click)="buscar()" *ngIf="showPenadoButton">Buscar</button>
+              
+          </div>
+      </div>
+      
+      <div>
+        <ul *ngFor="let item of items">
+          <li>{{item.name}}</li>
+        </ul>
+      </div>
+</html>   

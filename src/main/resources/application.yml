@@ -6,7 +6,7 @@ spring:
     name: penado
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   datasource:
     url: jdbc:oracle:thin:@gend-clust-scan.gendarmeria.gob.cl:1521/test.gendarmeria.gob.cl
     username: genchi

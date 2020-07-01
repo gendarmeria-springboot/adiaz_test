@@ -1,0 +1,19 @@
+.item{
+    background-color:lightpink;
+    
+}
+.botoncrear{
+    border-bottom:blue;
+   
+    }
+.botonbuscar{
+    background-color:lightcyan;
+    border-bottom:blue;
+    border-radius: 0ch;
+}
+.botonactualizar{
+    background-color:green;
+    border-bottom:blue;
+    border-radius: 0ch;
+    
+}
