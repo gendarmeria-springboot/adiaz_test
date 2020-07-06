@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BaseUrl: 'http://localhost:10201',
+  BaseUrl: 'http://localhost:4300',
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -13,4 +13,5 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
+//localhost:4300/penado/crear
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PenadoService } from 'src/app/services/penado.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-penado',
@@ -25,11 +25,11 @@ export class PenadoComponent implements OnInit {
     this.currenpenado.direccion = "";
   }
   crear() {
-    const validResult = this.penadoService.isValid(this.currenpenado);
-    if (!validResult.ok) {
-      console.error(`Hey, there is an error: ${validResult.message}`);
-      return;
-    }
+    // const validResult = this.penadoService.isValid(this.currenpenado);
+    // if (!validResult.ok) {
+    //   console.error(`Hey, there is an error: ${validResult.message}`);
+    //   return;
+    // }
     this.penadoService.crear(this.currenpenado)
     .pipe(
       catchError(err => {
@@ -41,6 +41,13 @@ export class PenadoComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se ha creado su registro!!!',
+          showConfirmButton: false,
+          timer: 3500
+        })
         this.currenpenado();
       },
       err => {
@@ -48,7 +55,9 @@ export class PenadoComponent implements OnInit {
       });
     }
     buscar(){
-      this.penadoService.buscar(this.currenpenado)
+      console.log(this.currenpenado.id);
+      this.penadoService.buscar(this.currenpenado.id)
+      //(this.currenpenado)
       .pipe(
         catchError(err => {
           console.error(`este error se ejecuta antes del res del subscribe: ${err}`);
@@ -58,14 +67,21 @@ export class PenadoComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this.currenpenado();
+          //this.currenpenado();
+          this.currenpenado.id = res.id;
+          this.currenpenado.run = res.run;
+          this.currenpenado.apellidos = res.apellidos;
+          this.currenpenado.nombres = res.nombres;
+          this.currenpenado.direccion = res.direccion;
         },
         err => {
-          console.error(`este error se ejecuta cuando http falla: ${err}`);
+          console.error(`2este error se ejecuta cuando http falla: ${err}`);
         })
     }
     actualizar(){
+      console.log(this.currenpenado);
       this.penadoService.actualizar(this.currenpenado)
+    
       .pipe(
         catchError(err => {
           console.error(`este error se ejecuta antes del res del subscribe: ${err}`);
@@ -75,12 +91,30 @@ export class PenadoComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this.currenpenado();
-        },
+            },
         err => {
           console.error(`este error se ejecuta cuando http falla: ${err}`);
         })
     }
+    eliminar(){
+      console.log(this.currenpenado.id);
+      this.penadoService.eliminar(this.currenpenado.id)
+      .pipe(
+        catchError(err => {
+          console.error(`este error se ejecuta antes del res del subscribe: ${err}`);
+          return of([]);
+        })
+      )
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.error(`2este error se ejecuta cuando http falla: ${err}`);
+        })
+    }
+
+
       toggle() {
         this.showPenadoButton = !this.showPenadoButton;
       }

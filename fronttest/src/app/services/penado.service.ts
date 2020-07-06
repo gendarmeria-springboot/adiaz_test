@@ -8,11 +8,11 @@ import { HttpParams } from '@angular/common/http';
 
 const routes = {
   crear: '/penado/crear',
-  buscar: '/penado/buscar',
+  buscar: (id:any)=>`/penado/busca/${id}`,
   actualizar:'penado/actualizar',
-  eliminar: 'penado/eliminar'
+  eliminar: (id:any)=>`penado/eliminar/${id}`
   };
-
+   
 
 @Injectable({
   providedIn: 'root'
@@ -52,43 +52,30 @@ export class PenadoService {
       run:penado.run,
       nombres:penado.nombres,
       apellidos:penado.apellidos,
-      direccion:penado.dieccion
+      direccion:penado.direccion
       } ;
-    return this.apiService.post(routes.crear, postPenado)
-    ;
+    return this.apiService.post(routes.crear, postPenado);
     }
-    buscar(penado: any){
-      const getPenado = {
-        id: penado.id,
-        run:penado.run,
-        nombres:penado.nombres,
-        apellidos:penado.apellidos,
-        direccion:penado.dieccion
-      } ;
-      return this.apiService.post(routes.buscar, getPenado)
+    buscar(id: any){
+      return this.apiService.get(routes.buscar(id))
       ;
     }
     actualizar(penado: any){
-      const putPenado ={
+      const postPenado ={
         id: penado.id,
         run:penado.run,
         nombres:penado.nombres,
         apellidos:penado.apellidos,
-        direccion:penado.dieccion
+        direccion:penado.direccion
       };
-      return this.apiService.put(routes.actualizar,putPenado);
+      return this.apiService.post(routes.actualizar,postPenado);
+      
     }
-    // eliminar(penado:any){
-    //     const deletePenado = id.penado;
-    //     // {
-    //     //    id: penado.id,
-    //     //   run:penado.run,
-    //     //   nombres:penado.nombres,
-    //     //   apellidos:penado.apellidos,
-    //     //   direccion:penado.dieccion
-    //     // };
-    //     return this.apiService.delete(routes.eliminar,deletePenado);
-    // }
+    
+    eliminar(id: any){
+      return this.apiService.delete(routes.eliminar(id))
+      ;
+    }
 
     
     

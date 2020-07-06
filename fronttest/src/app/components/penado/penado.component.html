@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> quedo en el index.html-->
         <div class="row">
-          <div class="col-2">
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <label for="run">ID:</label>
+            <input class="form-control" type="text" id ="id"  [(ngModel)]="currenpenado.id"/>
+            <p></p>
             <label for="run">R.U.N:</label>
             <input class="form-control" type="text" run ="run"  [(ngModel)]="currenpenado.run"/>
               
@@ -13,33 +16,33 @@
                 <input class="form-control" type="text" nom="nombres" [(ngModel)]="currenpenado.nombres"/>
             </div>
             <p></p>
+            <div>
+              <label for="apell">Apellidos:</label>
+              <input class="form-control" type="text" apell="apellidos"[(ngModel)]="currenpenado.apellidos"/>
+            </div>
+            <div>
+              <label for="Direccion">Direccion:</label>
+              <input class="form-control" type="text" dir="direccion"[(ngModel)]="currenpenado.direccion"/>
+            </div>
 
+            <p></p>
+            
           </div>
-        </div>
+        <!-- </div> -->
       
     </div>  
       
-      <!-- <div>
-        <button class="botoncrear"  type="button"  (click)="crear()" *ngIf="showPenadoButton">Crear</button>
-        <p></p>
-        <button class="botonbuscar" type="button"  (click)="buscar()" *ngIf="showPenadoButton">Buscar</button>
-        <p></p>
-        <button class="botonactualizar" type="button"  (click)="actualizar()" *ngIf="showPenadoButton">Actualizar</button>
-        <p></p>
-        <button type="button"  class="btn btn-primary" data-toggle="button" aria-pressed="false" (click)="toggle()" >Toggle</button>
-        <p></p>
-        <button type="button"  (click)="showItems()" >ShowItems</button>
-        <p></p>
-
-        </div> -->
+      
         <div class="row">  
           <div class="col-12 botonera" >
               
-              <button  type="submit" class="btn btn-primary" style= "margin: 5px;" (click)="crear()" *ngIf="showPenadoButton">Crear</button>
+              <button  type="submit" class="btn btn-primary mt-5 ml-4"  (click)="crear()" *ngIf="showPenadoButton">Crear</button>
            
-              <button  type="submit" class="btn btn-primary" style= "margin: 5px;" (click)="actualizar()" *ngIf="showPenadoButton">Actualizar</button>
+              <button  type="submit" class="btn btn-primary mt-5 ml-4"  (click)="actualizar()" *ngIf="showPenadoButton">Actualizar</button>
            
-              <button  type="submit" class="btn btn-primary" style= "margin: 5px;" (click)="buscar()" *ngIf="showPenadoButton">Buscar</button>
+              <button  type="submit" class="btn btn-primary mt-5 ml-4"  (click)="buscar()" *ngIf="showPenadoButton">Buscar</button>
+
+              <button  type="submit" class="btn btn-primary mt-5 ml-4"  (click)="eliminar()" *ngIf="showPenadoButton">Eliminar</button>
               
           </div>
       </div>
