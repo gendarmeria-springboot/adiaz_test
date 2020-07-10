@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: penado_bff_web
+    name: penado-bff-web
     
 
 eureka:

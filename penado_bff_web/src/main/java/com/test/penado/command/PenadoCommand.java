@@ -13,8 +13,6 @@ import com.test.penado.feign.request.PenadoFeignRequest;
 import com.test.penado.feign.response.PenadoFeignResponse;
 import com.test.penadoweb.exception.PenadoWebException;
 
-
-
 @Component
 public class PenadoCommand {
 
@@ -23,7 +21,7 @@ public class PenadoCommand {
 
 	@HystrixCommand(fallbackMethod = "penadoError")
 	public PenadoDTO create(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
-		
+
 		// Invocando al end point penado/ -> (ms auth)
 		ResponseEntity<PenadoFeignResponse> responseEntity = this.penadoFeignClient.create(penadoFeignRequest);
 		// Retorno del mapeo de respuesta al service.
@@ -34,4 +32,3 @@ public class PenadoCommand {
 		throw new PenadoWebException("Error en la comunicación con Penado MS", HttpStatus.NOT_FOUND);
 	}
 }
-
