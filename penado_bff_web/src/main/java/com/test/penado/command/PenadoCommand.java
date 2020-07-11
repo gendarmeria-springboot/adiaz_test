@@ -15,14 +15,13 @@ import com.test.penadoweb.exception.PenadoWebException;
 
 @Component
 public class PenadoCommand {
-
 	@Autowired
 	private PenadoFeignClient penadoFeignClient;
 
 	@HystrixCommand(fallbackMethod = "penadoError")
 	public PenadoDTO create(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
 
-		// Invocando al end point penado/ -> (ms auth)
+		// Invocando al end point penado/ -> (ms penado)
 		ResponseEntity<PenadoFeignResponse> responseEntity = this.penadoFeignClient.create(penadoFeignRequest);
 		// Retorno del mapeo de respuesta al service.
 		return Factory.getPenadoDTO(responseEntity.getBody());

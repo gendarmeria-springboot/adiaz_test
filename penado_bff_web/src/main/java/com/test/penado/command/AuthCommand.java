@@ -13,13 +13,13 @@ import com.test.penado.feign.request.LoginFeignRequest;
 import com.test.penado.feign.response.TokenFeignResponse;
 import com.test.penadoweb.exception.PenadoWebException;
 
-
+//se puede acceder de todos lados
 @Component
 public class AuthCommand {
   	
 	@Autowired
 	private AuthFeignClient authFeignClient;
-
+		
 	@HystrixCommand(fallbackMethod = "loginError")
 	public TokenDTO login(LoginFeignRequest loginFeignRequest) throws PenadoWebException {
 

@@ -32,7 +32,7 @@ public class AuthController {
 	//http://localhost:10001/auth/login : -> body {userName:<username>, password: <password>}
 	@PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<TokenDTO> login(@RequestBody LoginDTO body) throws PenadoWebException {
-		System.out.println("cualquier cosa");
+		//System.out.println("cualquier cosa");
 		TokenDTO token = this.authService.login(body);
 		return ResponseEntity.ok(token);
 	}
