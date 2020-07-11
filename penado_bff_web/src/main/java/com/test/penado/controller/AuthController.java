@@ -29,9 +29,10 @@ public class AuthController {
 	@Autowired
 	private AuthService authService;
 	
-	//http://localhost:10000/auth/login : -> body {userName:<username>, password: <password>}
+	//http://localhost:10001/auth/login : -> body {userName:<username>, password: <password>}
 	@PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<TokenDTO> login(@RequestBody LoginDTO body) throws PenadoWebException {
+		System.out.println("cualquier cosa");
 		TokenDTO token = this.authService.login(body);
 		return ResponseEntity.ok(token);
 	}

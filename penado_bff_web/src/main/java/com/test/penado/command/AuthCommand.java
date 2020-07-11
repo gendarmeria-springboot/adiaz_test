@@ -16,7 +16,7 @@ import com.test.penadoweb.exception.PenadoWebException;
 
 @Component
 public class AuthCommand {
-
+  	
 	@Autowired
 	private AuthFeignClient authFeignClient;
 
