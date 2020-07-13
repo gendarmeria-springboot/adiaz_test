@@ -68,18 +68,7 @@ public class PenadoController {
 		return new ResponseEntity<String>("{status:\"SUCCESS\"}", HttpStatus.OK);
 	}
 	
-	/*@PostMapping(value="/actualiza",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String>actualizainfo(@RequestBody PersonaDTO body) {
-        try {
-            this.personaService.update(body);
-        } catch(EmptyResultDataAccessException e) {
-            return new ResponseEntity<String>("{status:\"Registro no existe\"}", HttpStatus.ACCEPTED);
-        }
-   
-        return new ResponseEntity<String>("{status:\"SUCCESS\"}", HttpStatus.OK);
-    }*/
-	
-		
+			
 	@DeleteMapping(value = "/eliminar{id}",produces = MediaType.APPLICATION_JSON_VALUE) 
 	public Boolean delete(@PathVariable(required = false) int id) {
 		Boolean response = this.penadoService.delete(id);
