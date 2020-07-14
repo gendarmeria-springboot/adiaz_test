@@ -18,7 +18,7 @@ import com.test.penadoweb.exception.PenadoWebException;
 public class PenadoCommand {
 	@Autowired
 	private PenadoFeignClient penadoFeignClient;
-	
+
 	@HystrixCommand(fallbackMethod = "penadoError")
 	public PenadoDTO create(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
 
@@ -27,27 +27,29 @@ public class PenadoCommand {
 		// Retorno del mapeo de respuesta al service.
 		return Factory.getPenadoDTO(responseEntity.getBody());
 	}
-	
+
+	@HystrixCommand()
 	public PenadoDTO read(@PathVariable(required = false) int id) throws PenadoWebException {
-	
+
 		ResponseEntity<PenadoFeignResponse> responseEntity = this.penadoFeignClient.read(id);
-		
+
 		return Factory.getPenadoDTO(responseEntity.getBody());
 	}
-	
-	public String update(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
-		 this.penadoFeignClient.update(penadoFeignRequest);
-		 return new String("{status:\"SUCCESS\"}");
-		
-	}
-	
-	public Boolean delete(@PathVariable(required = false) int id) throws PenadoWebException {
-		this.penadoFeignClient.delete(id);
-		return new Boolean("{status:\"SUCCESS\"}");
-			
+
+	@HystrixCommand()
+	public Boolean update(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
+		ResponseEntity<Boolean> response = this.penadoFeignClient.update(penadoFeignRequest);
+		return response.getBody();
+
 	}
 
-	
+	@HystrixCommand()
+	public Boolean delete(Integer id) throws PenadoWebException {
+		ResponseEntity<Boolean> response = this.penadoFeignClient.delete(id);
+		return response.getBody();
+
+	}
+
 	public PenadoDTO penadoError(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
 		throw new PenadoWebException("Error en la comunicación con Penado MS", HttpStatus.NOT_FOUND);
 	}
