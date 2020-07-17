@@ -19,7 +19,7 @@ public class PenadoCommand {
 	@Autowired
 	private PenadoFeignClient penadoFeignClient;
 
-	@HystrixCommand(fallbackMethod = "penadoError")
+	@HystrixCommand()
 	public PenadoDTO create(PenadoFeignRequest penadoFeignRequest) throws PenadoWebException {
 
 		// Invocando al end point penado/ -> (ms penado)

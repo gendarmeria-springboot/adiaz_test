@@ -20,17 +20,17 @@ import com.test.penado.feign.response.PenadoFeignResponse;
 public interface PenadoFeignClient {
 	// Llamando al endpoint login del controlador auth del ms auth.
 	//@PostMapping(value = "/penado/crear", produces = MediaType.APPLICATION_JSON_VALUE) funcionalidad
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE) //recurso
+	@PostMapping(value = "/penado" , produces = MediaType.APPLICATION_JSON_VALUE) //recurso
 	public ResponseEntity<PenadoFeignResponse> create(@RequestBody PenadoFeignRequest body); 
 
 	
-	@GetMapping(value = "/{idParam}", consumes = MediaType.APPLICATION_JSON_VALUE) 
+	@GetMapping(value = "/penado/{idParam}", consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public ResponseEntity<PenadoFeignResponse> read(@PathVariable(required = false) int id);
 
-	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "/penado",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> update(@RequestBody PenadoFeignRequest body);
 
-	@DeleteMapping(value = "/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = "/penado/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> delete(@PathVariable(required = false) int id);
 
 }

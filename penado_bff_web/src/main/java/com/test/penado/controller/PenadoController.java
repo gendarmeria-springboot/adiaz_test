@@ -25,7 +25,7 @@ import com.test.penadoweb.exception.PenadoWebException;
 public class PenadoController {
 	@Autowired
 	private PenadoService penadoService;
-
+	
 	// http://localhost:10000/auth/login : -> body {userName:<username>, password:
 	// <password>}
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
