@@ -35,7 +35,7 @@ import com.test.penado.service.PenadoService;
 public class PenadoController {
 	@Autowired
 	private PenadoService penadoService;
-
+	
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PenadoDTO> create(@RequestBody PenadoDTO body) {
 		PenadoDTO response = this.penadoService.create(body);
@@ -44,7 +44,7 @@ public class PenadoController {
 
 	// @GetMapping(value = "/busca/{id}", produces =
 	// MediaType.APPLICATION_JSON_VALUE)
-	@GetMapping(value = "/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PenadoDTO> read(@PathVariable(required = false) int id) {
 		PenadoDTO response = this.penadoService.read(id);
 		return new ResponseEntity<PenadoDTO>(response, HttpStatus.OK);
@@ -78,7 +78,7 @@ public class PenadoController {
 
 	// @DeleteMapping(value = "/eliminar/{id}", produces =
 	// MediaType.APPLICATION_JSON_VALUE)
-	@DeleteMapping(value = "/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Boolean delete(@PathVariable(required = false) int id) {
 		Boolean response = this.penadoService.delete(id);
 		return response;

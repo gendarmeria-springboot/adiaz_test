@@ -1,1 +1,10 @@
-
+spring:
+  application:
+    name: mycloud-config-server
+  cloud:
+    config:  
+      server:
+        git:
+          uri: C:\Users\adiaz\Documents\proyecto_test\mycloud-config-server-repo
+server:          
+  port: 8888

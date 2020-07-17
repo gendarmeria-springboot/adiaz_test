@@ -24,13 +24,13 @@ public interface PenadoFeignClient {
 	public ResponseEntity<PenadoFeignResponse> create(@RequestBody PenadoFeignRequest body); 
 
 	
-	@GetMapping(value = "/penado/{idParam}", consumes = MediaType.APPLICATION_JSON_VALUE) 
+	@GetMapping(value = "/penado/{id}", consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public ResponseEntity<PenadoFeignResponse> read(@PathVariable(required = false) int id);
 
 	@PutMapping(value = "/penado",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> update(@RequestBody PenadoFeignRequest body);
 
-	@DeleteMapping(value = "/penado/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = "/penado/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> delete(@PathVariable(required = false) int id);
 
 }

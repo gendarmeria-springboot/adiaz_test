@@ -25,7 +25,7 @@ import com.test.penadoweb.exception.PenadoWebException;
 public class PenadoController {
 	@Autowired
 	private PenadoService penadoService;
-	
+	 
 	// http://localhost:10000/auth/login : -> body {userName:<username>, password:
 	// <password>}
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -36,7 +36,7 @@ public class PenadoController {
 
 	// @GetMapping(value = "/busca/{id}", produces =
 	// MediaType.APPLICATION_JSON_VALUE)
-	@GetMapping(value = "/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PenadoDTO> read(@PathVariable(required = false) int id) throws PenadoWebException {
 		PenadoDTO response = this.penadoService.read(id);
 		return new ResponseEntity<PenadoDTO>(response, HttpStatus.OK);
@@ -51,7 +51,7 @@ public class PenadoController {
 
 	// @DeleteMapping(value = "/eliminar/{id}", produces =
 	// MediaType.APPLICATION_JSON_VALUE)
-	@DeleteMapping(value = "/{idParam}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> delete(@PathVariable(required = false) int id) throws PenadoWebException {
 		Boolean response = this.penadoService.delete(id);
 		return new ResponseEntity<Boolean>(response, HttpStatus.OK);
