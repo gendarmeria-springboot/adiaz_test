@@ -5,6 +5,6 @@ spring:
     config:  
       server:
         git:
-          uri: C:\Users\adiaz\Documents\proyecto_test\mycloud-config-server-repo
+          uri: file://C:\Users\adiaz\Documents\proyecto_test\mycloud-config-server
 server:          
-  port: 8888
+  port: 9999

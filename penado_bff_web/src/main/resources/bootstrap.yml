@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: "prod"
+  application:
+    name: penado-bff-web
+  cloud:
+    config:
+      uri: "http://localhost:9999"        
