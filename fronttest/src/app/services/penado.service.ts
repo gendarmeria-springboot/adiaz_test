@@ -12,8 +12,7 @@ const routes = {
   actualizar:'penado/actualizar',
   eliminar: (id:any)=>`penado/eliminar/${id}`
   };
-   
-
+  
 @Injectable({
   providedIn: 'root'
 })

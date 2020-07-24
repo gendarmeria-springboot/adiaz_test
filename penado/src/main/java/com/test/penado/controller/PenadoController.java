@@ -71,7 +71,6 @@ public class PenadoController {
 
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public Boolean update(@RequestBody PenadoDTO body) {
-
 		Boolean response = this.penadoService.update(body);
 		return response;
 	}
